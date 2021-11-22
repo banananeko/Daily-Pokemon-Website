@@ -1,0 +1,256 @@
+:root {
+    --nav-col-bg: #46ACC2;
+    --nav-col-fg: #FFFFFF;
+    --border-rad: 0.25em;
+    --font-stack: Calibri, 'Open Sans', sans-serif;
+    --pane-pad: 0.25em;
+    --pane-margin: 0.25em;
+    --temp-bg-red: lightcoral;
+    --temp-bg-blue: lightblue;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 2fr 8fr 2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "logo logo logo logo logo" "nav_bar nav_bar nav_bar nav_bar nav_bar" ". menu details poke_day .";
+}
+
+.logo {
+    grid-area: logo;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: #808080;
+}
+
+.home {
+    font-size: small;
+}
+
+.right_nav > li {
+    margin-right: 2em;
+}
+
+.navigation_bar {
+    background: #46ACC2;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    font-family: sans-serif;
+    grid-area: nav_bar;
+}
+
+
+/* Hide underline on the home href */
+
+.home {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#menu {
+    grid-area: menu;
+    background: lightcoral;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+
+#details {
+    grid-area: details;
+    background: lightcoral;
+    align-items: center;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+
+#poke_day {
+    grid-area: poke_day;
+    background: lightcoral;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    margin: 0.25em;
+    padding: 0.25em;
+}
+
+
+/* Hide the bullet icons from the list of links, and display them horizontally */
+
+.right_nav {
+    display: flex;
+    list-style: none;
+    overflow: hidden;
+    font-size: xx-small;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: "logo logo logo" "nav_bar nav_bar nav_bar" "menu details poke_day";
+    }
+}
+
+
+/* Set the size of the hamburger button in the bar */
+
+.navigation_hamburger {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.navigation_hamburger > img {
+    width: 100%;
+}
+
+
+/* On larger screens, we should not see the hamburger button*/
+
+.navigation_hamburger {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .navigation_bar,
+    .right_nav {
+        flex-direction: column;
+    }
+
+    .right_nav {
+        display: none;
+    }
+
+    /* When applied, reveal the list of links */
+    .navigation_tray_reveal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* On small screens, reveal the hamburger button and place it at the end of the navbar */
+    .navigation_hamburger {
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .container {
+        grid-template-columns: auto;
+        grid-template-rows: auto 0.5fr 1fr 1fr 1fr;
+        grid-template-areas: "logo" "nav_bar" "poke_day" "details" "menu";
+    }
+}
+
+/* Make the image in poke_day smaller */
+#poke_day_img > img {
+    height: auto;
+    width: 100%;
+}
+
+#one_poke {
+    display: flex;
+    flex-direction: wrap;
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#one_poke > .image {
+    background: #46ACC2;
+    height: auto;
+    width: 22%;
+    flex: 0 0 22%;
+    margin: 8px;
+}
+
+.image > img {
+    width: 100%;
+}
+
+.image > h5 {
+    text-align: center;
+}
+
+small {
+    font-size: x-small;
+}
+
+.pokeName {
+    text-align: center;
+}
+
+
+#clickedPoke {
+    display: flex;
+    flex-direction: wrap;
+    align-items: flex-start;
+}
+
+
+#clickedPoke .strong {
+    align-self: center;
+    background: #46ACC2;
+    height: auto;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.strong > img {
+    width: 100%;
+}
+
+
+#clickedPoke .weak {
+    align-self: center;
+    background: #46ACC2;
+    height: auto;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.weak > img {
+    width: 100%;
+}
+
+
+.strongWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    text-align: center;
+}
+
+.weakWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    text-align: center;
+    padding: 5px;
+}
+
+.pokeItem {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
