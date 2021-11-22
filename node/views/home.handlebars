@@ -1,0 +1,39 @@
+<script src="./js/pokemon-client.js"></script>
+<div class="container">
+
+    <h1>The Pokémon of the day is: <span id="pkm-title">{{pokemon.name}}</span>!</h1>
+
+    <div class="pokemon-container">
+
+        <img id="pkm-sprite" src="./images/{{pokemon.sprite}}" class="pokemon-image">
+
+        <table class="pokemon-table">
+            <tbody>
+                <tr>
+                    <th>Name:</th>
+                    <td>
+                        <span id="pkm-name">{{pokemon.name}}</span> <em>(#<span id="pkm-id">{{pokemon.id}}</span>)</em>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Type:</th>
+                    <td>
+                        <span id="pkm-types">{{pokemon.types}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>About:</th>
+                    <td>
+                        <span id="pkm-dex">{{pokemon.dexEntry}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <p class="link-para">click <a id="change-pkm" href="#">here</a> to change Pokémon. You have seen
+        <span id="call-count">{{callCount}}</span> Pokémon so far!</p>
+
+</div>
